@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookmarks</title>
+    <title>Könyvjelzők</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -30,7 +30,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -69,7 +69,7 @@
 
         .folder-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
             align-items: start;
         }
@@ -111,11 +111,11 @@
         .bookmark-item {
             display: flex;
             align-items: center;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             text-decoration: none;
             color: var(--text-color);
             transition: background 0.15s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             word-break: break-word;
         }
 
@@ -124,17 +124,9 @@
             color: var(--accent);
         }
 
-        .bookmark-title {
-            flex-grow: 1;
-        }
-
         .toggle-icon {
             font-size: 0.8rem;
             transition: transform 0.2s;
-        }
-
-        .folder-content.collapsed + .toggle-icon {
-            transform: rotate(-90deg);
         }
 
         @media (max-width: 640px) {
@@ -148,26 +140,28 @@
 
 <div class="container">
     <header>
-        <h1>Bookmarks</h1>
+        <h1>Könyvjelzők Dashboard</h1>
         <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search bookmarks...">
+            <input type="text" id="search-input" placeholder="Keresés a könyvjelzők és hivatkozások között...">
         </div>
     </header>
 
     <div class="folder-grid" id="bookmark-container">
         
+        <!-- 1. Bookmarks bar -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>Bookmarks bar</span>
                 <span class="toggle-icon">&#9660;</span>
             </div>
             <ul class="folder-content">
-                <li><a class="bookmark-item" href="https://habitica.com/" target="_blank" rel="noopener">task</a></li>
-                <li><a class="bookmark-item" href="https://calendar.google.com/calendar/u/0/r/tasks?pli=1" target="_blank" rel="noopener">task (Calendar)</a></li>
-                <li><a class="bookmark-item" href="https://mail.google.com/mail/u/1/#inbox" target="_blank" rel="noopener">mail</a></li>
+                <li><a class="bookmark-item" href="https://habitica.com/" target="_blank" rel="noopener">Habitica (task)</a></li>
+                <li><a class="bookmark-item" href="https://calendar.google.com/calendar/u/0/r/tasks?pli=1" target="_blank" rel="noopener">Google Calendar Tasks</a></li>
+                <li><a class="bookmark-item" href="https://mail.google.com/mail/u/1/#inbox" target="_blank" rel="noopener">Gmail (mail)</a></li>
             </ul>
         </div>
 
+        <!-- 2. tool -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>tool</span>
@@ -178,23 +172,25 @@
                 <li><a class="bookmark-item" href="https://mail.google.com/mail/u/0/?ogbl#inbox" target="_blank" rel="noopener">zerovok Mail</a></li>
                 <li><a class="bookmark-item" href="http://freemail.hu/mail/main.fm#fm" target="_blank" rel="noopener">Freemail</a></li>
                 <li><a class="bookmark-item" href="http://www.google.hu/" target="_blank" rel="noopener">Google HU</a></li>
-                <li><a class="bookmark-item" href="https://mobilgo.eu/tovabb_nyitvatartok.php?lat=47.5293&lon=21.611&kat11u=293&forrasceg=nemzetidohanyboltok001515" target="_blank" rel="noopener">MobilGO - Tovább nyitvatartó Nemzeti dohányboltok</a></li>
-                <li><a class="bookmark-item" href="https://mobilgo.eu/cegkereso?kat2=293" target="_blank" rel="noopener">Trafik kereső</a></li>
-                <li><a class="bookmark-item" href="https://www.facebook.com/groups/feed/?locale=hu_HU" target="_blank" rel="noopener">Csoportok | Facebook</a></li>
+                <li><a class="bookmark-item" href="https://mobilgo.eu/tovabb_nyitvatartok.php?lat=47.5293&lon=21.611&kat11u=293&forrasceg=nemzetidohanyboltok001515" target="_blank" rel="noopener">MobilGO - Tovább nyitvatartó dohányboltok</a></li>
+                <li><a class="bookmark-item" href="https://mobilgo.eu/cegkereso?kat2=293" target="_blank" rel="noopener">MobilGO - Trafik kereső</a></li>
+                <li><a class="bookmark-item" href="https://www.facebook.com/groups/feed/?locale=hu_HU" target="_blank" rel="noopener">Facebook Csoportok</a></li>
             </ul>
         </div>
 
+        <!-- 3. subreddits -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>subreddits</span>
                 <span class="toggle-icon">&#9660;</span>
             </div>
             <ul class="folder-content">
-                <li><a class="bookmark-item" href="https://www.reddit.com/r/referralcodes/" target="_blank" rel="noopener">Referral Codes</a></li>
-                <li><a class="bookmark-item" href="https://www.reddit.com/r/SayNoToKarmaFarmers/" target="_blank" rel="noopener">Say No To Karma Farmers</a></li>
+                <li><a class="bookmark-item" href="https://www.reddit.com/r/referralcodes/" target="_blank" rel="noopener">r/referralcodes</a></li>
+                <li><a class="bookmark-item" href="https://www.reddit.com/r/SayNoToKarmaFarmers/" target="_blank" rel="noopener">r/SayNoToKarmaFarmers</a></li>
             </ul>
         </div>
 
+        <!-- 4. netspeed -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>netspeed</span>
@@ -206,7 +202,7 @@
                 <li><a class="bookmark-item" href="https://openspeedtest.com/" target="_blank" rel="noopener">OpenSpeedTest</a></li>
                 <li><a class="bookmark-item" href="https://www.nperf.com/hu/" target="_blank" rel="noopener">nPerf.com</a></li>
                 <li><a class="bookmark-item" href="https://www.speed.io/" target="_blank" rel="noopener">speed.io</a></li>
-                <li><a class="bookmark-item" href="https://digi.hu/szolgaltatasaink/internet/internet-sebessegmeres" target="_blank" rel="noopener">DIGI - Internet sebességmérés</a></li>
+                <li><a class="bookmark-item" href="https://digi.hu/szolgaltatasaink/internet/internet-sebessegmeres" target="_blank" rel="noopener">DIGI sebességmérés</a></li>
                 <li><a class="bookmark-item" href="https://www.meter.net/" target="_blank" rel="noopener">METER.net</a></li>
                 <li><a class="bookmark-item" href="https://fiber.google.com/speedtest/" target="_blank" rel="noopener">Google Fiber Speed Test</a></li>
                 <li><a class="bookmark-item" href="https://testmy.net/" target="_blank" rel="noopener">TestMy.net</a></li>
@@ -219,6 +215,7 @@
             </ul>
         </div>
 
+        <!-- 5. pay & Tools -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>pay & Tools</span>
@@ -230,7 +227,7 @@
                 <li><a class="bookmark-item" href="https://www.paypal.com/myaccount/summary" target="_blank" rel="noopener">PayPal: Summary</a></li>
                 <li><a class="bookmark-item" href="https://wise.com/hu/" target="_blank" rel="noopener">Wise</a></li>
                 <li><a class="bookmark-item" href="https://www.revolut.com/hu-HU/" target="_blank" rel="noopener">Revolut</a></li>
-                <li><a class="bookmark-item" href="https://www.timebie.com/timezone/pacificbudapest.php" target="_blank" rel="noopener">PST to Budapest Time</a></li>
+                <li><a class="bookmark-item" href="https://www.timebie.com/timezone/pacificbudapest.php" target="_blank" rel="noopener">TimeBie - PST to Budapest</a></li>
                 <li><a class="bookmark-item" href="https://time.is/" target="_blank" rel="noopener">Time.is</a></li>
                 <li><a class="bookmark-item" href="https://www.pontosido.com/" target="_blank" rel="noopener">Pontos idő</a></li>
                 <li><a class="bookmark-item" href="https://mai-nevnap.hu/" target="_blank" rel="noopener">mai-nevnap.hu</a></li>
@@ -239,6 +236,7 @@
             </ul>
         </div>
 
+        <!-- 6. G Extension & Google -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>G Extension & Google</span>
@@ -254,6 +252,7 @@
             </ul>
         </div>
 
+        <!-- 7. pass -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>pass</span>
@@ -265,6 +264,7 @@
             </ul>
         </div>
 
+        <!-- 8. H1S70R1 -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>H1S70R1</span>
@@ -278,91 +278,253 @@
             </ul>
         </div>
 
-        <div class="folder">
-            <div class="folder-
-
-              <!-- FOLDER: PCbuild -->
+<!-- 9. security & status -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
-                <span>PCbuild</span>
+                <span>security & status</span>
                 <span class="toggle-icon">&#9660;</span>
             </div>
             <ul class="folder-content">
-                <li><a class="bookmark-item" href="https://www.eloshapes.com/" target="_blank" rel="noopener">EloShapes - Mouse Comparison Tools</a></li>
+                <li><a class="bookmark-item" href="https://isitdownrightnow.com/" target="_blank" rel="noopener">IsItDownRightNow</a></li>
+                <li><a class="bookmark-item" href="https://downdetector.hu/" target="_blank" rel="noopener">Downdetector HU</a></li>
+                <li><a class="bookmark-item" href="https://downdetector.com/" target="_blank" rel="noopener">Downdetector Global</a></li>
+                <li><a class="bookmark-item" href="https://downforeveryoneorjustme.com/" target="_blank" rel="noopener">DownForEveryoneOrJustMe</a></li>
+                <li><a class="bookmark-item" href="https://haveibeenpwned.com/" target="_blank" rel="noopener">HaveIBeenPwned</a></li>
+                <li><a class="bookmark-item" href="https://namescan.io/" target="_blank" rel="noopener">NameScan</a></li>
+                <li><a class="bookmark-item" href="https://www.abuseipdb.com/" target="_blank" rel="noopener">AbuseIPDB</a></li>
+                <li><a class="bookmark-item" href="https://kihivott.hu/" target="_blank" rel="noopener">Kihivott.hu</a></li>
+                <li><a class="bookmark-item" href="https://www.imeipro.info/" target="_blank" rel="noopener">IMEIpro</a></li>
+                <li><a class="bookmark-item" href="https://imei24.com/" target="_blank" rel="noopener">IMEI24</a></li>
+                <li><a class="bookmark-item" href="https://imeicheck.com/" target="_blank" rel="noopener">IMEICheck</a></li>
+                <li><a class="bookmark-item" href="https://www.mi.com/global/verify/#/en/tab/imei" target="_blank" rel="noopener">Xiaomi Verify</a></li>
+            </ul>
+        </div>
+
+        <!-- 10. testing & analysis -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <span>testing & analysis</span>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <ul class="folder-content">
+                <li><a class="bookmark-item" href="https://www.browserstack.com/" target="_blank" rel="noopener">BrowserStack</a></li>
+                <li><a class="bookmark-item" href="https://www.browserling.com/" target="_blank" rel="noopener">Browserling</a></li>
+                <li><a class="bookmark-item" href="https://lambdatest.com/" target="_blank" rel="noopener">LambdaTest</a></li>
+                <li><a class="bookmark-item" href="https://webvm.io/" target="_blank" rel="noopener">WebVM</a></li>
+                <li><a class="bookmark-item" href="https://appetize.io/" target="_blank" rel="noopener">Appetize.io</a></li>
+                <li><a class="bookmark-item" href="https://bazaar.abuse.ch/" target="_blank" rel="noopener">MalwareBazaar</a></li>
+                <li><a class="bookmark-item" href="https://metadefender.opswat.com/" target="_blank" rel="noopener">MetaDefender</a></li>
+                <li><a class="bookmark-item" href="https://id-ransomware.malwarehunterteam.com/" target="_blank" rel="noopener">ID Ransomware</a></li>
+                <li><a class="bookmark-item" href="https://urlscan.io/" target="_blank" rel="noopener">URLScan.io</a></li>
+                <li><a class="bookmark-item" href="https://www.scamadviser.com/" target="_blank" rel="noopener">ScamAdviser</a></li>
+                <li><a class="bookmark-item" href="https://www.urlvoid.com/" target="_blank" rel="noopener">URLVoid</a></li>
+                <li><a class="bookmark-item" href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank" rel="noopener">Malpedia</a></li>
+            </ul>
+        </div>
+
+        <!-- 11. filesend & converters -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <span>filesend & converters</span>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <ul class="folder-content">
+                <li><a class="bookmark-item" href="https://portal.pushbullet.com/" target="_blank" rel="noopener">Pushbullet Portal</a></li>
+                <li><a class="bookmark-item" href="web.airdroid.com" target="_blank" rel="noopener">AirDroid Web</a></li>
+                <li><a class="bookmark-item" href="https://www.mirrored.to/" target="_blank" rel="noopener">Mirrored.to</a></li>
+                <li><a class="bookmark-item" href="https://ezgif.com/" target="_blank" rel="noopener">Ezgif</a></li>
+                <li><a class="bookmark-item" href="https://cloudconvert.com/" target="_blank" rel="noopener">CloudConvert</a></li>
+                <li><a class="bookmark-item" href="https://convertio.co/" target="_blank" rel="noopener">Convertio</a></li>
+                <li><a class="bookmark-item" href="https://anywebp.com/" target="_blank" rel="noopener">AnyWebP</a></li>
+                <li><a class="bookmark-item" href="https://pixelied.com/" target="_blank" rel="noopener">Pixelied</a></li>
+                <li><a class="bookmark-item" href="https://tools.pdf24.org/" target="_blank" rel="noopener">PDF24 Tools</a></li>
+                <li><a class="bookmark-item" href="https://tinywow.com/" target="_blank" rel="noopener">TinyWow</a></li>
+                <li><a class="bookmark-item" href="https://www.tunemymusic.com/" target="_blank" rel="noopener">Tune My Music</a></li>
+            </ul>
+        </div>
+
+        <!-- 12. image tools -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <span>image tools</span>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <ul class="folder-content">
+                <li><a class="bookmark-item" href="https://imglarger.com/" target="_blank" rel="noopener">ImgLarger</a></li>
+                <li><a class="bookmark-item" href="https://www.imageenlarger.com/" target="_blank" rel="noopener">ImageEnlarger</a></li>
+                <li><a class="bookmark-item" href="https://imageresizer.com/" target="_blank" rel="noopener">ImageResizer</a></li>
+                <li><a class="bookmark-item" href="https://photoaid.com/" target="_blank" rel="noopener">PhotoAid</a></li>
+                <li><a class="bookmark-item" href="https://calculateaspectratio.com/" target="_blank" rel="noopener">Aspect Ratio Calculator</a></li>
+            </ul>
+        </div>
+
+        <!-- 13. tech & PCbuild -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <span>tech & PCbuild</span>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <ul class="folder-content">
+                <li><a class="bookmark-item" href="https://www.eloshapes.com/" target="_blank" rel="noopener">EloShapes</a></li>
                 <li><a class="bookmark-item" href="https://pcpartpicker.com/" target="_blank" rel="noopener">PCPartPicker</a></li>
-                <li><a class="bookmark-item" href="https://pcbuilder.net/" target="_blank" rel="noopener">PC Builder</a></li>
-                <li><a class="bookmark-item" href="https://pc-builder.io/" target="_blank" rel="noopener">PC Builder Compatibility Checker</a></li>
-                <li><a class="bookmark-item" href="https://www.bequiet.com/en/psucalculator" target="_blank" rel="noopener">be quiet! Power Supply calculator</a></li>
-                <li><a class="bookmark-item" href="https://www.reddit.com/user/hunzero/m/mancave/" target="_blank" rel="noopener">Reddit - m/mancave</a></li>
+                <li><a class="bookmark-item" href="https://pc-builder.io/" target="_blank" rel="noopener">PCBuilder</a></li>
+                <li><a class="bookmark-item" href="https://www.bequiet.com/en/psucalculator" target="_blank" rel="noopener">be quiet! PSU Calculator</a></li>
                 <li><a class="bookmark-item" href="https://builds.gg/" target="_blank" rel="noopener">builds.gg</a></li>
-                <li><a class="bookmark-item" href="https://www.reddit.com/r/JayzTwoCents/" target="_blank" rel="noopener">r/JayzTwoCents</a></li>
-                <li><a class="bookmark-item" href="https://pcpartpicker.com/list/TM4Hyg" target="_blank" rel="noopener">PCPartPicker List (7600X / 6700 XT)</a></li>
-                <li><a class="bookmark-item" href="https://www.zachstechturf.com/" target="_blank" rel="noopener">Zach's Tech Turf</a></li>
-                <li><a class="bookmark-item" href="https://www.youtube.com/playlist?list=PL-sNev2nfk70mWy-BmknCyzXWm4ziRHU5" target="_blank" rel="noopener">Jay2Cents PC Build Videos</a></li>
+                <li><a class="bookmark-item" href="https://ipon.hu/geposszerako" target="_blank" rel="noopener">iPon Gépösszerakó</a></li>
+                <li><a class="bookmark-item" href="https://telenet.hu/" target="_blank" rel="noopener">Telenet.hu</a></li>
             </ul>
         </div>
 
-        <!-- FOLDER: screenshot -->
+        <!-- 14. App DL & Utilities -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
-                <span>screenshot</span>
+                <span>App DL & Utilities</span>
                 <span class="toggle-icon">&#9660;</span>
             </div>
             <ul class="folder-content">
-                <li><a class="bookmark-item" href="https://www.take-a-screenshot.org/" target="_blank" rel="noopener">How to take a screenshot</a></li>
-                <li><a class="bookmark-item" href="https://prnt.sc/" target="_blank" rel="noopener">Lightshot</a></li>
-                <li><a class="bookmark-item" href="https://imgbb.com/" target="_blank" rel="noopener">ImgBB képmegosztás</a></li>
-                <li><a class="bookmark-item" href="https://imageshack.com/" target="_blank" rel="noopener">ImageShack</a></li>
+                <li><a class="bookmark-item" href="https://fmhy.net/" target="_blank" rel="noopener">FMHY Wiki</a></li>
+                <li><a class="bookmark-item" href="https://selfh.st/" target="_blank" rel="noopener">Self-Hosted Software (selfh.st)</a></li>
+                <li><a class="bookmark-item" href="https://itsfoss.com/" target="_blank" rel="noopener">It's FOSS</a></li>
+                <li><a class="bookmark-item" href="https://www.free-codecs.com/" target="_blank" rel="noopener">Free-Codecs</a></li>
+                <li><a class="bookmark-item" href="https://sourceforge.net/" target="_blank" rel="noopener">SourceForge</a></li>
+                <li><a class="bookmark-item" href="https://alternativeto.net/" target="_blank" rel="noopener">AlternativeTo</a></li>
+                <li><a class="bookmark-item" href="https://portableapps.com/" target="_blank" rel="noopener">PortableApps</a></li>
+                <li><a class="bookmark-item" href="https://www.majorgeeks.com/" target="_blank" rel="noopener">MajorGeeks</a></li>
+                <li><a class="bookmark-item" href="https://webcatalog.io/" target="_blank" rel="noopener">WebCatalog</a></li>
             </ul>
         </div>
 
-        <!-- FOLDER: Win theme -->
+<!-- 15. media & music -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
-                <span>Win theme</span>
+                <span>media & music</span>
                 <span class="toggle-icon">&#9660;</span>
             </div>
             <ul class="folder-content">
-                <li><a class="bookmark-item" href="https://cleodesktop.com/ubuntu-dark-theme-for-windows-11/" target="_blank" rel="noopener">Ubuntu Dark Theme For Windows 11 23H2</a></li>
+                <li><a class="bookmark-item" href="https://music.youtube.com/" target="_blank" rel="noopener">YouTube Music</a></li>
+                <li><a class="bookmark-item" href="https://soundcloud.com/" target="_blank" rel="noopener">SoundCloud</a></li>
+                <li><a class="bookmark-item" href="https://cobalt.tools/" target="_blank" rel="noopener">Cobalt Tools (DL)</a></li>
+                <li><a class="bookmark-item" href="https://y2mate.is/" target="_blank" rel="noopener">Y2Mate</a></li>
+                <li><a class="bookmark-item" href="https://snapsave.app/" target="_blank" rel="noopener">SnapSave</a></li>
+                <li><a class="bookmark-item" href="https://ssstik.io/" target="_blank" rel="noopener">SSSTik (TikTok DL)</a></li>
+                <li><a class="bookmark-item" href="https://myonlineradio.hu/" target="_blank" rel="noopener">MyOnlineRadio HU</a></li>
+                <li><a class="bookmark-item" href="https://radio.garden/" target="_blank" rel="noopener">Radio Garden</a></li>
             </ul>
         </div>
 
-        <!-- FOLDER: Rainmeter -->
+        <!-- 16. ai & dev tools -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
-                <span>Rainmeter</span>
+                <span>ai & dev tools</span>
                 <span class="toggle-icon">&#9660;</span>
             </div>
             <ul class="folder-content">
-                <li><a class="bookmark-item" href="https://www.deviantart.com/search?q=rainmeter" target="_blank" rel="noopener">DeviantArt Rainmeter Search</a></li>
-                <li><a class="bookmark-item" href="https://rainmeterui.com/" target="_blank" rel="noopener">Rainmeter Skins (RainmeterUI)</a></li>
-                <li><a class="bookmark-item" href="https://visualskins.com/" target="_blank" rel="noopener">Visual Skins</a></li>
+                <li><a class="bookmark-item" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a></li>
+                <li><a class="bookmark-item" href="https://gemini.google.com/" target="_blank" rel="noopener">Google Gemini</a></li>
+                <li><a class="bookmark-item" href="https://claude.ai/" target="_blank" rel="noopener">Claude AI</a></li>
+                <li><a class="bookmark-item" href="https://perplex.ai/" target="_blank" rel="noopener">Perplexity AI</a></li>
+                <li><a class="bookmark-item" href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face</a></li>
+                <li><a class="bookmark-item" href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a class="bookmark-item" href="https://greasyfork.org/hu" target="_blank" rel="noopener">Greasy Fork (Userscripts)</a></li>
             </ul>
         </div>
 
-        <!-- FOLDER: WP & LWP -->
+        <!-- 17. customisation & desktop -->
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
-                <span>Wallpapers & LWP</span>
+                <span>customisation & desktop</span>
                 <span class="toggle-icon">&#9660;</span>
             </div>
             <ul class="folder-content">
-                <li><a class="bookmark-item" href="https://www.wallpaperengine.space/" target="_blank" rel="noopener">Wallpaper Engine Space</a></li>
-                <li><a class="bookmark-item" href="https://motionbgs.com/" target="_blank" rel="noopener">MotionBGS - Live Wallpapers 4K</a></li>
-                <li><a class="bookmark-item" href="https://www.desktophut.com/search/wallpaper" target="_blank" rel="noopener">DesktopHut</a></li>
-                <li><a class="bookmark-item" href="https://pixabay.com/hu/videos/" target="_blank" rel="noopener">Pixabay Videók</a></li>
-                <li><a class="bookmark-item" href="https://unsplash.com/s/photos/universe" target="_blank" rel="noopener">Unsplash Universe Pictures</a></li>
-                <li><a class="bookmark-item" href="https://www.wallpaperflare.com/galaxy-inside-eye-person-s-left-eye-3d-space-eyes-eyesight-wallpaper-ptkhx" target="_blank" rel="noopener">Wallpaper Flare - Galaxy Inside Eye</a></li>
-                <li><a class="bookmark-item" href="https://www.wallpaperfusion.com/Search/?Monitors=1" target="_blank" rel="noopener">WallpaperFusion</a></li>
-                <li><a class="bookmark-item" href="https://www.pixelstalk.net/" target="_blank" rel="noopener">PixelsTalk</a></li>
-                <li><a class="bookmark-item" href="https://www.peakpx.com/en/search?q=super+amoled" target="_blank" rel="noopener">Peakpx - Super AMOLED</a></li>
-                <li><a class="bookmark-item" href="https://www.pxfuel.com/en/query?q=amoled" target="_blank" rel="noopener">Pxfuel - AMOLED HD</a></li>
-                <li><a class="bookmark-item" href="https://wallpapercave.com/2-monitors-wallpapers" target="_blank" rel="noopener">Wallpaper Cave - 2 Monitors</a></li>
-                <li><a class="bookmark-item" href="https://pixelz.cc/images/category/dual-monitor/" target="_blank" rel="noopener">Pixelz.cc - Dual Monitor</a></li>
-                <li><a class="bookmark-item" href="https://pngtree.com/" target="_blank" rel="noopener">Pngtree</a></li>
-                <li><a class="bookmark-item" href="https://es.pixilart.com/" target="_blank" rel="noopener">Pixilart</a></li>
-                <li><a class="bookmark-item" href="https://www.desktopnexus.com/" target="_blank" rel="noopener">Desktop Nexus Wallpapers</a></li>
-                <li><a class="bookmark-item" href="https://neal.fun/" target="_blank" rel="noopener">Neal.fun</a></li>
-                <li><a class="bookmark-item" href="https://nealfun.org/" target="_blank" rel="noopener">Neal Fun Portal</a></li>
+                <li><a class="bookmark-item" href="https://www.rainmeter.net/" target="_blank" rel="noopener">Rainmeter</a></li>
+                <li><a class="bookmark-item" href="https://vividwallpapers.com/" target="_blank" rel="noopener">Vivid Wallpapers</a></li>
+                <li><a class="bookmark-item" href="https://wallhaven.cc/" target="_blank" rel="noopener">Wallhaven</a></li>
+                <li><a class="bookmark-item" href="https://icons8.com/" target="_blank" rel="noopener">Icons8</a></li>
+                <li><a class="bookmark-item" href="https://flaticon.com/" target="_blank" rel="noopener">Flaticon</a></li>
             </ul>
         </div>
+
+        <!-- 18. productivity & notes -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <span>productivity & notes</span>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <ul class="folder-content">
+                <li><a class="bookmark-item" href="https://keep.google.com/" target="_blank" rel="noopener">Google Keep</a></li>
+                <li><a class="bookmark-item" href="https://notion.so/" target="_blank" rel="noopener">Notion</a></li>
+                <li><a class="bookmark-item" href="https://todoist.com/" target="_blank" rel="noopener">Todoist</a></li>
+                <li><a class="bookmark-item" href="https://trello.com/" target="_blank" rel="noopener">Trello</a></li>
+            </ul>
+        </div>
+
+<!-- 19. mobile & android -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <span>mobile & android</span>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <ul class="folder-content">
+                <li><a class="bookmark-item" href="https://forum.xda-developers.com/" target="_blank" rel="noopener">XDA Forums</a></li>
+                <li><a class="bookmark-item" href="https://apkmirror.com/" target="_blank" rel="noopener">APKMirror</a></li>
+                <li><a class="bookmark-item" href="https://f-droid.org/" target="_blank" rel="noopener">F-Droid</a></li>
+                <li><a class="bookmark-item" href="https://microg.org/" target="_blank" rel="noopener">MicroG Project</a></li>
+            </ul>
+        </div>
+
+        <!-- 20. gaming & streaming -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <span>gaming & streaming</span>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <ul class="folder-content">
+                <li><a class="bookmark-item" href="https://store.steampowered.com/" target="_blank" rel="noopener">Steam Store</a></li>
+                <li><a class="bookmark-item" href="https://steamdb.info/" target="_blank" rel="noopener">SteamDB</a></li>
+                <li><a class="bookmark-item" href="https://isthereanydeal.com/" target="_blank" rel="noopener">IsThereAnyDeal</a></li>
+                <li><a class="bookmark-item" href="https://www.twitch.tv/" target="_blank" rel="noopener">Twitch</a></li>
+                <li><a class="bookmark-item" href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function toggleFolder(headerElement) {
+        const content = headerElement.nextElementSibling;
+        content.classList.toggle('collapsed');
+    }
+
+    document.getElementById('search-input').addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const folders = document.querySelectorAll('.folder');
+
+        folders.forEach(folder => {
+            const items = folder.querySelectorAll('.bookmark-item');
+            let hasVisibleItems = false;
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                const href = item.getAttribute('href').toLowerCase();
+
+                if (text.includes(searchTerm) || href.includes(searchTerm)) {
+                    item.parentElement.style.display = '';
+                    hasVisibleItems = true;
+                } else {
+                    item.parentElement.style.display = 'none';
+                }
+            });
+
+            if (hasVisibleItems) {
+                folder.style.display = '';
+                folder.querySelector('.folder-content').classList.remove('collapsed');
+            } else {
+                folder.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
