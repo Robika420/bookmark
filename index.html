@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saját Könyvjelző Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --accent: #38bdf8;
+            --border-color: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; background: var(--bg-color); color: var(--text-color); padding: 2rem 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { color: var(--accent); margin-bottom: 1rem; }
+        #search-input { width: 100%; max-width: 500px; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 1rem; outline: none; }
+        #search-input:focus { border-color: var(--accent); }
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; align-items: start; }
+        .folder { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+        .folder-header { padding: 0.85rem 1rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border-color); font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+        .folder-header:hover { background: rgba(255,255,255,0.06); }
+        .folder-content { list-style: none; padding: 0.5rem 0; }
+        .folder-content.collapsed { display: none; }
+        .bookmark-item { display: block; padding: 0.4rem 1rem; text-decoration: none; color: var(--text-color); font-size: 0.9rem; word-break: break-all; }
+        .bookmark-item:hover { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
+        .toggle-icon { font-size: 0.8rem; transition: transform 0.2s; }
+        .folder-header.open .toggle-icon { transform: rotate(90deg); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Könyvjelző Dashboard</h1>
+        <input type="text" id="search-input" placeholder="Keresés a könyvjelzők között...">
+    </header>
+    <div class="folder-grid">
+        
+    </div>
+</div>
+<script>
+    function toggleFolder(header) {
+        header.classList.toggle('open');
+        const content = header.nextElementSibling;
+        content.classList.toggle('collapsed');
+    }
+
+    document.getElementById('search-input').addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+        document.querySelectorAll('.folder').forEach(folder => {
+            let matches = false;
+            folder.querySelectorAll('.bookmark-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                const href = item.getAttribute('href').toLowerCase();
+                if (text.includes(query) || href.includes(query)) {
+                    item.parentElement.style.display = '';
+                    matches = true;
+                } else {
+                    item.parentElement.style.display = 'none';
+                }
+            });
+            if (matches) {
+                folder.style.display = '';
+                if(query !== "") {
+                    folder.querySelector('.folder-content').classList.remove('collapsed');
+                    folder.querySelector('.folder-header').classList.add('open');
+                }
+            } else {
+                folder.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
