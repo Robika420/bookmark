@@ -34,11 +34,11 @@
 <body>
 <div class="container">
     <header>
-        <h1>Könyvjelző Dashboard</h1>
+        <h1>Bookmarks
+<div id="clock">00:00:00</div></h1>
         <input type="text" id="search-input" placeholder="Keresés a könyvjelzők között...">
     </header>
     <div class="folder-grid">
-
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>Bookmarks bar (3)</span>
@@ -51,6 +51,7 @@
                 <li><a class="bookmark-item" href="https://mail.google.com/mail/u/1/#inbox" target="_blank" rel="noopener">mail</a></li>
             </ul>
         </div>
+
         <div class="folder">
             <div class="folder-header" onclick="toggleFolder(this)">
                 <span>tool (7)</span>
@@ -5863,6 +5864,18 @@
             }
         });
     });
+</script>
+    <script>
+        // Clock Script
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
 </script>
 </body>
 </html>
